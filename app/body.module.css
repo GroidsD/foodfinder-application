@@ -1,0 +1,162 @@
+.bodyStyle {
+    font-size: 15px;
+    font-family: "Open Sans", sans-serif;
+    line-height: 26px;
+    font-weight: 300;
+    color: #656565;
+    overflow-x: hidden !important;
+    -webkit-font-smoothing: antialiased;
+}
+
+/*intro,about,shopping*/
+.introduce,
+.about,
+.shopping,
+.gallery {
+    text-align: center;
+    padding: 70px 30px;
+    height: 700px;
+}
+
+.introduceHeaderImg,
+.aboutHeaderImg,
+.shoppingHeaderImg {
+    margin-top: 25px;
+    margin-bottom: 40px;
+}
+
+.galleryHeaderImg {
+    width: 100%;
+    height: 300px;
+}
+
+.galleryHeaderImg:hover {
+    border: 2px solid black;
+    border-radius: 50px;
+}
+
+.gallerryHeaderText .introduceHeaderText,
+.aboutHeaderText,
+.shoppingHeaderText,
+.gallerryHeaderText {
+    margin-bottom: 30px;
+}
+
+.introduceBodyImg {
+    width: 100%;
+    margin-top: 50px;
+}
+
+.a {
+    color: black;
+}
+
+.a:hover {
+    text-decoration: none;
+    color: #C3A484;
+}
+
+.about,
+.gallery {
+    background-image: url(/banner5.jpg);
+    height: 1000px;
+}
+
+.gallery {
+    background-image: url(/p2backgroundimg1.jpg);
+}
+
+.aboutBodyImg {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.aboutBody {
+    text-align: left;
+}
+
+.aboutBodyTitle {
+    font-size: 20px;
+    margin-top: 50px !important;
+    margin-bottom: 15px;
+    color: black;
+}
+
+.aboutBodyTitle:hover {
+    text-decoration: none;
+    color: #C3A484;
+}
+
+.aboutBodyReadMore {
+    display: flex;
+    color: black;
+}
+
+.aboutBodyReadMore hr {
+    border: 1px solid black;
+    width: 10px;
+}
+
+.shoppingBodyImg {
+    position: relative;
+}
+
+.shoppingBodyImg img {
+    width: 100%;
+}
+
+.shoppingBodyImg button {
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    display: none;
+    z-index: 1;
+    color: #fff;
+    background-color: #be9c79;
+    border: 1px solid transparent;
+    width: 160px;
+    height: 50px;
+}
+
+.shoppingBodyImg:hover button {
+    display: block;
+    transition: 0.5s;
+
+}
+
+.shoppingBodyImg:hover img {
+    opacity: 0.3;
+    transition: 0.5s;
+}
+
+.cartButtonContainer {
+    position: fixed;
+    top: 50%;
+    right: 50px;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.cartButton {
+    background-color: #393a39;
+    color: red;
+    border: none;
+    padding: 10px 20px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.pTag {
+    display: none;
+}
+
+.cartButton:hover .pTag {
+    display: block;
+    background-color: #656565;
+
+}
+
+.icon .cartButton:hover.icon {
+    display: none;
+    background-color: #656565;
+}

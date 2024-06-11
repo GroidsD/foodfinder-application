@@ -1,0 +1,41 @@
+.logo svg {
+    fill: #CCCCCC !important;
+}
+
+/* rest of the styles */
+
+.footerContainer {
+    background-image: url(image/footer-top-img-1.jpg);
+    text-align: center;
+    height: 500px;
+    color: #fff;
+}
+
+.footerContainer img {
+    text-align: center;
+    margin-top: 50px;
+    width: 200px;
+}
+
+.textwidget {
+    margin-top: 30px;
+}
+
+.textwidget p {
+    color: #fff;
+}
+
+.titleStore {
+    color: #fff;
+    font-family: Marcellus, sans-serif;
+    font-weight: 400;
+}
+
+.a {
+    color: #fff;
+}
+
+.a:hover {
+    color: #be9c79;
+    text-decoration: none;
+}

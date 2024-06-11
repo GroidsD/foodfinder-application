@@ -1,0 +1,13 @@
+.root {
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    width: 150px;
+}
+
+@media (min-width: 600px) {
+    .root {
+        height: 50px;
+        width: 169px;
+    }
+}
