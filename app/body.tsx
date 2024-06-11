@@ -9,17 +9,19 @@ import icon3 from "@/public/icon3.jpg";
 import icon4 from "@/public/icon4.jpg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-
+import Link from 'next/link'
 
 const Body = () => {
     return (
         <div className={styles.bodyStyle}>
-            <div className={styles.cartButtonContainer}>
-                <span className={styles.cartButton}>
-                    <p className={styles.pTag}>Add to cart</p>
-                    <FontAwesomeIcon icon={faShoppingCart} className={styles.icon} />
-                </span>
-            </div>
+            <Link href="/footer">
+                <button className={styles.CartBtn}>
+                    <span className={styles.IconContainer}>
+                        <FontAwesomeIcon icon={faShoppingCart} className={styles.icon} />
+                    </span>
+                    <p className={styles.text}>Go to Cart</p>
+                </button>
+            </Link>
             <div className={styles.introduce}>
                 <div className={styles.introduceHeader}>
                     <h1>OUR DELICIOUS OFFER</h1>

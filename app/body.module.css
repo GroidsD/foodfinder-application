@@ -121,7 +121,6 @@
 .shoppingBodyImg:hover button {
     display: block;
     transition: 0.5s;
-
 }
 
 .shoppingBodyImg:hover img {
@@ -129,34 +128,69 @@
     transition: 0.5s;
 }
 
-.cartButtonContainer {
+.CartBtn {
+    width: 140px;
+    height: 40px;
+    border-radius: 12px;
+    border: none;
+    background-color: rgb(255, 208, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition-duration: .5s;
+    overflow: hidden;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.103);
     position: fixed;
     top: 50%;
-    right: 50px;
-    transform: translateY(-50%);
+    right: 15px;
+    z-index: 2;
+}
+
+.IconContainer {
+    position: absolute;
+    left: -50px;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 2;
+    transition-duration: .5s;
+}
+
+.icon {
+    border-radius: 1px;
+}
+
+.text {
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(17, 17, 17);
     z-index: 1;
+    transition-duration: .5s;
+    font-size: 1.04em;
+    font-weight: 600;
 }
 
-.cartButton {
-    background-color: #393a39;
-    color: red;
-    border: none;
-    padding: 10px 20px;
-    font-size: 25px;
-    cursor: pointer;
+.CartBtn:hover .IconContainer {
+    transform: translateX(58px);
+    border-radius: 40px;
+    ransition-duration: .5s;
 }
 
-.pTag {
-    display: none;
+.CartBtn:hover .text {
+    transform: translate(10px, 0px);
+    transition-duration: .5s;
 }
 
-.cartButton:hover .pTag {
-    display: block;
-    background-color: #656565;
-
-}
-
-.icon .cartButton:hover.icon {
-    display: none;
-    background-color: #656565;
+.CartBtn:active {
+    transform: scale(0.95);
+    transition-duration: .5s;
 }
