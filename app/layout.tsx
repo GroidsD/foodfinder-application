@@ -5,7 +5,6 @@ import Header from "./header";
 import { Providers } from "./providers";
 import Body from "./body";
 import Footer from "./footer";
-import Cart from "./cart";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,7 +24,7 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
           {/* <main className="layout-grid">
             {children}
           </main> */}
-          <Cart />
+
 
         </Providers>
 

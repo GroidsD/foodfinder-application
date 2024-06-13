@@ -194,3 +194,15 @@
     transform: scale(0.95);
     transition-duration: .5s;
 }
+
+.img {
+    width: 100px;
+}
+
+.delete {
+    position: absolute;
+    color: #000;
+    left: 30px;
+    text-align: center;
+    margin-top: 40px;
+}
