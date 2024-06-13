@@ -182,7 +182,7 @@
 .CartBtn:hover .IconContainer {
     transform: translateX(58px);
     border-radius: 40px;
-    ransition-duration: .5s;
+    /* ransition-duration: .5s; */
 }
 
 .CartBtn:hover .text {

@@ -11,10 +11,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link'
 
+
 const Body = () => {
     return (
         <div className={styles.bodyStyle}>
-            <Link href="/footer">
+            <Link href="./cart">
                 <button className={styles.CartBtn}>
                     <span className={styles.IconContainer}>
                         <FontAwesomeIcon icon={faShoppingCart} className={styles.icon} />
