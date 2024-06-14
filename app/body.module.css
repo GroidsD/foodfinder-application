@@ -200,18 +200,14 @@
 }
 
 .delete {
-    position: absolute;
     color: #000;
-    left: 30px;
     text-align: center;
     margin-top: 40px;
 }
 
-.view {
-
-    position: relative;
-    text-align: center;
-    font-weight: bold;
-    left: 550px;
-
+.cartContainer {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
 }

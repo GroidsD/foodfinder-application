@@ -33,36 +33,7 @@ const Body = () => {
             cartTable.scrollIntoView({ behavior: 'smooth' });
         }
     };
-    const [products, setProducts] = useState([
-        {
-            id: 1,
-            img: "/product2.jpg",
-            name: 'COLUMBIA COFFEE',
-            price: 21.00,
-            quantity: 0,
-        },
-        {
-            id: 2,
-            img: "/product.jpg",
-            name: ' ETHIOPIA COFFEE',
-            price: 31.00,
-            quantity: 0,
-        },
-        {
-            id: 3,
-            name: ' GUATEMALA COFFEE',
-            img: "/product3.jpg",
-            price: 28.00,
-            quantity: 0,
-        },
-        {
-            id: 4,
-            name: 'KENYA COFFEE',
-            img: "/product1.jpg",
-            price: 29.00,
-            quantity: 0,
-        },
-    ]);
+    const [products, setProducts] = useState<Product[]>([]);
     const handleAddToCart = (product: Product) => {
         const existingProductIndex = products.findIndex((p) => p.id === product.id);
 
@@ -103,6 +74,28 @@ const Body = () => {
 
     const totalCost = products.reduce((acc, product) => acc + product.price * product.quantity, 0);
 
+    const handlePay = () => {
+        if (products.length === 0) {
+            toast.error('No products in cart. Please add some products before paying.', {
+                position: 'top-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
+        } else {
+            setProducts([]);
+            toast.success('Payment successful!', {
+                position: 'top-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
+        }
+    };
 
     return (
         <div className={styles.bodyStyle}>
@@ -162,7 +155,7 @@ const Body = () => {
                 </div >
             </div>
 
-            <div className={styles.about}>
+            <div className={styles.about} id="about">
                 <div className={styles.aboutHeader}>
                     <h1>THE COFFEE HERALD</h1>
                     <img src="/title.jpg" className={styles.aboutHeaderImg} />
@@ -316,58 +309,70 @@ const Body = () => {
                     </div>
                 </div>
             </div>
-            <table id="carttable" className="table">
-
-                <thead>
-                    <tr >
-                        <th className={styles.view} scope="col-12">VIEW CART</th>
-
-                    </tr>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">Product</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Quantity</th>
-                        <th scope='col'> Subtotal</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {products.map((product) => (
-                        <tr key={product.id}>
-                            <th scope="row">
-                                <a className={styles.delete} href="" onClick={(e) => handleDelete(product.id, e)}>
-                                    X
-                                </a>
-                            </th>
-                            <td>
-                                <img src={product.img} className={styles.img} />
-                                {product.name}
-                            </td>
-                            <td>${product.price.toFixed(2)}</td>
-                            <td>
-                                <div data-mdb-input-init className="form-outline" style={{ width: '22rem' }}>
-                                    <i className="fas fa-dollar-sign trailing"></i>
-                                    <input
-                                        type="number"
-                                        id="form1"
-                                        min={0}
-                                        value={product.quantity}
-                                        onChange={(e) => handleQuantityChange(product.id, parseInt(e.target.value, 10))}
-                                        className="form-control form-icon-trailing"
-                                    />
-                                </div>
-                            </td>
-                            <td>${(product.price * product.quantity).toFixed(2)}</td>
+            <div className={styles.cartContainer} id="carttable">
+                <div style={{ textAlign: "center", marginBottom: "30px" }}>
+                    <h1>VIEW CART</h1>
+                </div>
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope='col'> Subtotal</th>
                         </tr>
-                    ))}
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td>TOTAL:</td>
-                        <td>${totalCost.toFixed(2)}</td>
-                    </tr>
-                </tfoot>
-            </table >
+                    </thead>
+                    <tbody>
+                        {products.length > 0 ? (
+                            products.map((product) => (
+                                <tr key={product.id}>
+                                    <th scope="row">
+                                        <a className={styles.delete} href="" onClick={(e) => handleDelete(product.id, e)}>
+                                            X
+                                        </a>
+                                    </th>
+                                    <td>
+                                        <img src={product.img} className={styles.img} />
+                                        {product.name}
+                                    </td>
+                                    <td>${product.price.toFixed(2)}</td>
+                                    <td>
+                                        <div data-mdb-input-init className="form-outline" style={{ width: '22rem' }}>
+                                            <i className="fas fa-dollar-sign trailing"></i>
+                                            <input
+                                                type="number"
+                                                id="form1"
+                                                min={0}
+                                                value={product.quantity}
+                                                onChange={(e) => handleQuantityChange(product.id, parseInt(e.target.value, 10))}
+                                                className="form-control form-icon-trailing"
+                                                style={{ width: "100%", }}
+                                            />
+                                        </div>
+                                    </td>
+                                    <td>${(product.price * product.quantity).toFixed(2)}</td>
+                                </tr>
+                            ))
+                        ) : (
+                            <tr>
+                                <td colSpan={5} style={{ textAlign: "center" }}>
+                                    Your cart is empty.
+                                </td>
+                            </tr>
+                        )}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>TOTAL:</td>
+                            <td>${totalCost.toFixed(2)}</td>
+                            <td>
+                                <button type='submit' onClick={handlePay}>PAY</button>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
         </div >
     );
 };
