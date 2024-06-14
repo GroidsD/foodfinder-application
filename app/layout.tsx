@@ -4,8 +4,10 @@ import "./globals.css";
 import Header from "./header";
 import { Providers } from "./providers";
 import Body from "./body";
+import React from 'react';
 import Footer from "./footer";
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,9 +19,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="en">
+
       <body className={inter.className}>
         <Providers>
           <Header />
+
           <Body />
           {/* <main className="layout-grid">
             {children}

@@ -12,11 +12,21 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link'
 import React, { useState } from 'react';
 import useScroll from 'next/router';
+import { toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 
 
 
 const Body = () => {
     const scroll = useScroll;
+    interface Product {
+        id: number;
+        img: string;
+        name: string;
+        price: number;
+        quantity: number;
+    }
+
 
     const handleScrollToCart = () => {
         const cartTable = document.getElementById('carttable');
@@ -28,32 +38,56 @@ const Body = () => {
         {
             id: 1,
             img: "/product2.jpg",
-            name: 'GUATEMALA COFFEE',
+            name: 'COLUMBIA COFFEE',
             price: 21.00,
             quantity: 0,
         },
         {
             id: 2,
             img: "/product.jpg",
-            name: 'COLUMBIA COFFEE',
+            name: ' ETHIOPIA COFFEE',
             price: 31.00,
             quantity: 0,
         },
         {
             id: 3,
-            name: 'KENYA COFFEE',
+            name: ' GUATEMALA COFFEE',
             img: "/product3.jpg",
             price: 28.00,
             quantity: 0,
         },
         {
             id: 4,
-            name: 'ETHIOPIA COFFEE',
+            name: 'KENYA COFFEE',
             img: "/product1.jpg",
-            price: 28.00,
+            price: 29.00,
             quantity: 0,
         },
     ]);
+    const handleAddToCart = (product: Product) => {
+        const existingProductIndex = products.findIndex((p) => p.id === product.id);
+
+        if (existingProductIndex !== -1) {
+            // Product already exists in the cart, update quantity
+            const updatedProducts = [...products];
+            updatedProducts[existingProductIndex].quantity += 1;
+            setProducts(updatedProducts);
+        } else {
+            // Product doesn't exist in the cart, add it
+            setProducts([...products, { ...product, quantity: 1 }]);
+        }
+
+        toast.success(`Added ${product.name} to cart successfully!`, {
+            className: 'custom-toast',
+            position: "top-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    };
 
     const handleDelete = (id: number, e: React.MouseEvent<HTMLAnchorElement>) => {
         e.preventDefault();
@@ -69,6 +103,8 @@ const Body = () => {
     };
 
     const totalCost = products.reduce((acc, product) => acc + product.price * product.quantity, 0);
+
+
     return (
         <div className={styles.bodyStyle}>
             <Link href="#carttable" onClick={handleScrollToCart}>
@@ -168,43 +204,20 @@ const Body = () => {
                 <div className={styles.shoppingHeader}>
                     <h1>THE COFFEE HERALD</h1>
                     <img src="/title.jpg" className={styles.shoppingHeaderImg} />
-                    <p className={styles.shoppingHeaderText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore</p>
+                    <p className={styles.shoppingHeaderText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
                 </div>
                 <div className="container">
                     <div className="row">
                         <div className="col-3">
                             <div className={styles.shoppingBody}>
                                 <div className={styles.shoppingBodyImg}>
-                                    <img src="/product.jpg" />
-                                    <button>ADD TO CART</button>
-                                </div>
-                                <a href="" className={styles.a}>
-                                    <p>ETHIOPIA COFFEE</p>
-                                </a>
-                                <p>$15.00</p>
-                            </div>
-                        </div>
-                        <div className="col-3">
-                            <div className={styles.shoppingBody}>
-                                <div className={styles.shoppingBodyImg}>
-                                    <img src="/product1.jpg" />
-                                    <button>ADD TO CART</button>
-                                </div>
-                                <a href="" className={styles.a}>
-                                    <p>KENYA COFFEE</p>
-                                </a>
-                                <p>$18.00</p>
-                            </div>
-                        </div>
-                        <div className="col-3">
-                            <div className={styles.shoppingBody}>
-                                <div className={styles.shoppingBodyImg}>
                                     <img src="/product2.jpg" />
-                                    <button>ADD TO CART</button>
+                                    <button onClick={() => handleAddToCart({ id: 1, img: "/product2.jpg", name: 'COLUMBIA COFFEE', price: 21.00, quantity: 1 })}>
+                                        ADD TO CART
+                                    </button>
                                 </div>
                                 <a href="" className={styles.a}>
-                                    <p>COLUMBIA COFFEE</p>
+                                    <p> COLUMBIA COFFEE</p>
                                 </a>
                                 <p>$21.00</p>
                             </div>
@@ -212,13 +225,43 @@ const Body = () => {
                         <div className="col-3">
                             <div className={styles.shoppingBody}>
                                 <div className={styles.shoppingBodyImg}>
-                                    <img src="/product3.jpg" />
-                                    <button>ADD TO CART</button>
+                                    <img src="/product.jpg" />
+                                    <button onClick={() => handleAddToCart({ id: 2, img: "/product.jpg", name: 'ETHIOPIA COFFEE', price: 31.00, quantity: 1 })}>
+                                        ADD TO CART
+                                    </button>
                                 </div>
                                 <a href="" className={styles.a}>
-                                    <p>GUATEMALA COFFEE</p>
+                                    <p> ETHIOPIA COFFEE</p>
                                 </a>
-                                <p>$25.00</p>
+                                <p>$31.00</p>
+                            </div>
+                        </div>
+                        <div className="col-3">
+                            <div className={styles.shoppingBody}>
+                                <div className={styles.shoppingBodyImg}>
+                                    <img src="/product3.jpg" />
+                                    <button onClick={() => handleAddToCart({ id: 3, img: "/product3.jpg", name: 'GUATEMALA COFFEE', price: 28.00, quantity: 1 })}>
+                                        ADD TO CART
+                                    </button>
+                                </div>
+                                <a href="" className={styles.a}>
+                                    <p> GUATEMALA COFFEE</p>
+                                </a>
+                                <p>$28.00</p>
+                            </div>
+                        </div>
+                        <div className="col-3">
+                            <div className={styles.shoppingBody}>
+                                <div className={styles.shoppingBodyImg}>
+                                    <img src="/product1.jpg" />
+                                    <button onClick={() => handleAddToCart({ id: 4, img: "/product1.jpg", name: 'KENYA COFFEE', price: 29.00, quantity: 1 })}>
+                                        ADD TO CART
+                                    </button>
+                                </div>
+                                <a href="" className={styles.a}>
+                                    <p>KENYA COFFEE</p>
+                                </a>
+                                <p>$29.00</p>
                             </div>
                         </div>
                     </div>
@@ -263,7 +306,12 @@ const Body = () => {
                 </div>
             </div>
             <table id="carttable" className="table">
+
                 <thead>
+                    <tr >
+                        <th className={styles.view} scope="col-12">VIEW CART</th>
+
+                    </tr>
                     <tr>
                         <th scope="col"></th>
                         <th scope="col">Product</th>
@@ -309,6 +357,7 @@ const Body = () => {
                     </tr>
                 </tfoot>
             </table >
+            <ToastContainer containerId="toast-container" />
         </div >
     );
 };

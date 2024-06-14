@@ -206,3 +206,12 @@
     text-align: center;
     margin-top: 40px;
 }
+
+.view {
+
+    position: relative;
+    text-align: center;
+    font-weight: bold;
+    left: 550px;
+
+}
