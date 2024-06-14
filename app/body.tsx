@@ -14,7 +14,7 @@ import React, { useState } from 'react';
 import useScroll from 'next/router';
 import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
-
+import "react-toastify/dist/ReactToastify.css";
 
 
 const Body = () => {
@@ -26,7 +26,6 @@ const Body = () => {
         price: number;
         quantity: number;
     }
-
 
     const handleScrollToCart = () => {
         const cartTable = document.getElementById('carttable');
@@ -107,6 +106,18 @@ const Body = () => {
 
     return (
         <div className={styles.bodyStyle}>
+            <ToastContainer
+                position='top-right'
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme='light'
+            />
             <Link href="#carttable" onClick={handleScrollToCart}>
                 <button className={styles.CartBtn}>
                     <span className={styles.IconContainer}>
@@ -357,7 +368,6 @@ const Body = () => {
                     </tr>
                 </tfoot>
             </table >
-            <ToastContainer containerId="toast-container" />
         </div >
     );
 };
