@@ -21,7 +21,7 @@ const Body = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 1000) {
+            if (window.scrollY > 900) {
                 setShowGoTop(true);
             } else {
                 setShowGoTop(false);
@@ -146,33 +146,32 @@ const Body = () => {
                 <div className={styles.introduceHeader}>
                     <h1>OUR DELICIOUS OFFER</h1>
                     <Image src={title} className={styles.introduceHeaderImg} alt="Responsive image" />
-                    <p className={styles.introduceHeaderText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore</p>
+                    <p className={styles.introduceHeaderText}>A caffè corretto is often prepared by simply adding a few drops of the desired spirit into an espresso shot; however in some cases the alcohol is served in a shot alongside the coffee, allowing the customer to pour the quantity they desire</p>
                 </div>
                 <div className="container">
                     <div className="row">
                         <div className="col-3">
                             <Image src={icon1} className={styles.introduceBodyImg} alt="Responsive image" />
                             <a href="" className={styles.a}>TYPES OF COFFEE</a>
-                            <p>Lorem ipsum dolor sit ametal, consectetuer adipiscing elitus. Aeneantos commodo</p>
+                            <p>Caffè corretto is an Italian caffeinated alcoholic drink, consisting of a shot of espresso with a small amount of liquor, usually grappa, and sometimes sambuca or brandy.</p>
 
                         </div>
                         <div className="col-3">
                             <Image src={icon2} className={styles.introduceBodyImg} alt="Responsive image" />
                             <a href="" className={styles.a}>BEAN VARIETIES</a>
-                            <p>Lorem ipsum dolor sit ametal, consectetuer adipiscing elitus. Aeneantos commodo</p>
+                            <p>The variety of beans used in Caffè Corretto can vary depending on personal preference or availability.</p>
                         </div>
                         <div className="col-3">
                             <Image src={icon3} className={styles.introduceBodyImg} alt="Responsive image" />
 
                             <a href="" className={styles.a}>COFFEE & PASTRY</a>
-                            <p>Lorem ipsum dolor sit ametal, consectetuer adipiscing elitus. Aeneantos commodo</p>
+                            <p>Coffee & Pastry could refer to a variety of things, such as a coffee shop that sells pastries, a type of coffee drink that includes a pastry, or a menu category that includes both coffee and pastries.</p>
                         </div>
                         <div className="col-3">
                             <Image src={icon4} className={styles.introduceBodyImg} alt="Responsive image" />
 
                             <a href="" className={styles.a}>COFFEE TO GO</a>
-                            <p>Lorem ipsum dolor sit ametal, consectetuer adipiscing elitus. Aeneantos commodo</p>
+                            <p>It likely refers to a coffee drink that is prepared to be taken away and consumed on the go, rather than being served in a sit-down setting.</p>
                         </div>
                     </div>
                 </div >
@@ -182,8 +181,7 @@ const Body = () => {
                 <div className={styles.aboutHeader}>
                     <h1>THE COFFEE HERALD</h1>
                     <img src="/title.jpg" className={styles.aboutHeaderImg} />
-                    <p className={styles.aboutHeaderText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore</p>
+                    <p className={styles.aboutHeaderText}>The Coffee Herald would likely provide information and updates about this coffee drink, as well as other coffee-related topics.</p>
                 </div>
                 <div className={styles.aboutBody}>
                     <div className="row">
@@ -191,8 +189,7 @@ const Body = () => {
                             <a href="" className={styles.a}><img src="/ad1.jpg" className={styles.aboutBodyImg} /></a>
                             <br />
                             <a href="" className={styles.aboutBodyTitle}>PREP TECHNIQUES</a>
-                            <p>Quisque rutrum, aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies
-                                nisi, nam eget dui. Etiam rhoncus maecenas tempus,</p>
+                            <p>This is the most common method of brewing coffee in the US. Hot water is poured over coffee grounds in a filter and the brewed coffee drips into a carafe or cup below.</p>
                             <div className={styles.aboutBodyReadMore}>
                                 <a href="" className={styles.a}>
                                     <p> --- READ MORE ---</p>
@@ -203,8 +200,7 @@ const Body = () => {
                             <a href="" className={styles.a}><img src="/ad2.jpg" className={styles.aboutBodyImg} /></a>
                             <br />
                             <a href="" className={styles.aboutBodyTitle}>FRENCH PRESS</a>
-                            <p>Quisque rutrum, aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies
-                                nisi, nam eget dui. Etiam rhoncus maecenas tempus,</p>
+                            <p>Coarsely ground coffee is placed in a French press pot and hot water is added. After a few minutes, the plunger is pressed down, separating the grounds from the brewed coffee.</p>
                             <div className={styles.aboutBodyReadMore}>
                                 <a href="" className={styles.a}>
                                     <p> --- READ MORE ---</p>
@@ -215,8 +211,7 @@ const Body = () => {
                             <a href="" className={styles.a}><img src="/ad3.jpg" className={styles.aboutBodyImg} /></a>
                             <br />
                             <a href="" className={styles.aboutBodyTitle}>TURKISH IBRIK</a>
-                            <p>Quisque rutrum, aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies
-                                nisi, nam eget dui. Etiam rhoncus maecenas tempus,</p>
+                            <p> The unique shape of the ibrik allows for the coffee to be brewed slowly and evenly, resulting in a strong, rich, and flavorful cup of coffee.</p>
                             <div className={styles.aboutBodyReadMore}>
                                 <a href="" className={styles.a}>
                                     <p> --- READ MORE ---</p>
@@ -229,9 +224,9 @@ const Body = () => {
 
             <div className={styles.shopping} id='menu'>
                 <div className={styles.shoppingHeader}>
-                    <h1>THE COFFEE HERALD</h1>
+                    <h1>THE COFFEE BEST SELLER</h1>
                     <img src="/title.jpg" className={styles.shoppingHeaderImg} />
-                    <p className={styles.shoppingHeaderText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
+                    <p className={styles.shoppingHeaderText}>A caffè corretto is often prepared by simply adding a few drops of the desired spirit into an espresso shot; however in some cases the alcohol is served in a shot alongside the coffee, allowing the customer to pour the quantity they desire.</p>
                 </div>
                 <div className="container">
                     <div className="row">
@@ -299,8 +294,7 @@ const Body = () => {
                 <div className={styles.introduceGallery}>
                     <h1>Our Sweet Gallery</h1>
                     <img src="/title.jpg" />
-                    <p className={styles.galleryHeaderText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore</p>
+                    <p className={styles.galleryHeaderText}>Our Sweet Gallery should offer a variety of sweet treats that pair well with coffee, such as pastries, cookies, cakes, doughnuts, biscotti, macarons, brownies, cinnamon rolls, churros, and tarts.</p>
                 </div>
                 <div className="row">
                     <div className="col-3">
