@@ -31,10 +31,10 @@ const Header = () => {
                 </div>
             </Carousel>
             <header className={styles.menuHeader} id="fixed-menu">
-                <a href=""><Image src={logo} alt="Logo" className={styles.logo} width={150} height={70} /></a>
+                <a href="/"><Image src={logo} alt="Logo" className={styles.logo} width={150} height={70} /></a>
                 <nav className={styles.menu}>
                     <ul id="main-menu">
-                        <li><a href="">HOME</a></li>
+                        <li><a href="/">HOME</a></li>
                         <li><a href="#news">NEWS</a></li>
                         <li><a href="#about">ABOUT</a></li>
                         <li><a href="#menu">MENU</a></li>

@@ -21,6 +21,7 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
     <html lang="en">
 
       <body className={inter.className}>
+
         <Providers>
           <Header />
 
