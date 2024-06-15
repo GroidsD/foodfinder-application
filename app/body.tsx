@@ -10,14 +10,36 @@ import icon4 from "@/public/icon4.jpg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link'
-import React, { useState } from 'react';
 import useScroll from 'next/router';
 import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
-
+import React, { useState, useEffect } from 'react';
 
 const Body = () => {
+    const [showGoTop, setShowGoTop] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 1000) {
+                setShowGoTop(true);
+            } else {
+                setShowGoTop(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    const handleGoTopClick = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+
     const scroll = useScroll;
     interface Product {
         id: number;
@@ -98,6 +120,7 @@ const Body = () => {
     };
 
     return (
+
         <div className={styles.bodyStyle}>
             <ToastContainer
                 position='top-right'
@@ -119,7 +142,7 @@ const Body = () => {
                     <p className={styles.text}>Go to Cart</p>
                 </button>
             </Link>
-            <div className={styles.introduce}>
+            <div className={styles.introduce} id='news'>
                 <div className={styles.introduceHeader}>
                     <h1>OUR DELICIOUS OFFER</h1>
                     <Image src={title} className={styles.introduceHeaderImg} alt="Responsive image" />
@@ -204,7 +227,7 @@ const Body = () => {
                 </div>
             </div>
 
-            <div className={styles.shopping}>
+            <div className={styles.shopping} id='menu'>
                 <div className={styles.shoppingHeader}>
                     <h1>THE COFFEE HERALD</h1>
                     <img src="/title.jpg" className={styles.shoppingHeaderImg} />
@@ -272,7 +295,7 @@ const Body = () => {
                 </div>
             </div>
 
-            <div className={styles.gallery}>
+            <div className={styles.gallery} id='gallery'>
                 <div className={styles.introduceGallery}>
                     <h1>Our Sweet Gallery</h1>
                     <img src="/title.jpg" />
@@ -372,6 +395,13 @@ const Body = () => {
                         </tr>
                     </tfoot>
                 </table>
+            </div>
+            <div>
+                {showGoTop && (
+                    <button className={styles.goTop} onClick={handleGoTopClick}>
+                        ^
+                    </button>
+                )}
             </div>
         </div >
     );
