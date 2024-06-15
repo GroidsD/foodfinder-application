@@ -144,7 +144,7 @@ const Body = () => {
             </Link>
             <div className={styles.introduce} id='news'>
                 <div className={styles.introduceHeader}>
-                    <h1>OUR DELICIOUS OFFER</h1>
+                    <h1> DELICIOUS OFFER</h1>
                     <Image src={title} className={styles.introduceHeaderImg} alt="Responsive image" />
                     <p className={styles.introduceHeaderText}>A caffè corretto is often prepared by simply adding a few drops of the desired spirit into an espresso shot; however in some cases the alcohol is served in a shot alongside the coffee, allowing the customer to pour the quantity they desire</p>
                 </div>
