@@ -234,7 +234,10 @@ const Body = () => {
                             <div className={styles.shoppingBody}>
                                 <div className={styles.shoppingBodyImg}>
                                     <img src="/product2.jpg" />
-                                    <button onClick={() => handleAddToCart({ id: 1, img: "/product2.jpg", name: 'COLUMBIA COFFEE', price: 21.00, quantity: 1 })}>
+                                    <button
+                                        style={{ fontWeight: 'bold' }}
+                                        onClick={() => handleAddToCart({ id: 1, img: "/product2.jpg", name: 'COLUMBIA COFFEE', price: 21.00, quantity: 1 })}
+                                        className="btn btn-warning">
                                         ADD TO CART
                                     </button>
                                 </div>
@@ -248,7 +251,10 @@ const Body = () => {
                             <div className={styles.shoppingBody}>
                                 <div className={styles.shoppingBodyImg}>
                                     <img src="/product.jpg" />
-                                    <button onClick={() => handleAddToCart({ id: 2, img: "/product.jpg", name: 'ETHIOPIA COFFEE', price: 31.00, quantity: 1 })}>
+                                    <button
+                                        style={{ fontWeight: 'bold' }}
+                                        onClick={() => handleAddToCart({ id: 2, img: "/product.jpg", name: 'ETHIOPIA COFFEE', price: 31.00, quantity: 1 })}
+                                        className="btn btn-warning">
                                         ADD TO CART
                                     </button>
                                 </div>
@@ -262,7 +268,10 @@ const Body = () => {
                             <div className={styles.shoppingBody}>
                                 <div className={styles.shoppingBodyImg}>
                                     <img src="/product3.jpg" />
-                                    <button onClick={() => handleAddToCart({ id: 3, img: "/product3.jpg", name: 'GUATEMALA COFFEE', price: 28.00, quantity: 1 })}>
+                                    <button
+                                        style={{ fontWeight: 'bold' }}
+                                        onClick={() => handleAddToCart({ id: 3, img: "/product3.jpg", name: 'GUATEMALA COFFEE', price: 28.00, quantity: 1 })}
+                                        className="btn btn-warning">
                                         ADD TO CART
                                     </button>
                                 </div>
@@ -276,7 +285,10 @@ const Body = () => {
                             <div className={styles.shoppingBody}>
                                 <div className={styles.shoppingBodyImg}>
                                     <img src="/product1.jpg" />
-                                    <button onClick={() => handleAddToCart({ id: 4, img: "/product1.jpg", name: 'KENYA COFFEE', price: 29.00, quantity: 1 })}>
+                                    <button
+                                        style={{ fontWeight: 'bold' }}
+                                        onClick={() => handleAddToCart({ id: 4, img: "/product1.jpg", name: 'KENYA COFFEE', price: 29.00, quantity: 1 })}
+                                        className="btn btn-warning">
                                         ADD TO CART
                                     </button>
                                 </div>
@@ -384,7 +396,11 @@ const Body = () => {
                             <td>TOTAL:</td>
                             <td>${totalCost.toFixed(2)}</td>
                             <td>
-                                <button type='submit' onClick={handlePay}>PAY</button>
+                                <button
+                                    style={{ fontWeight: 'bold' }}
+                                    type='submit'
+                                    onClick={handlePay}
+                                    className="btn btn-primary">PAYMENT</button>
                             </td>
                         </tr>
                     </tfoot>

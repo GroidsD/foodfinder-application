@@ -19,15 +19,15 @@ const Header = () => {
             >
                 <div>
                     <img src="/banner.jpg" alt="image1" className={styles.imgStyle} />
-                    {/* <p className="legend">What is is? - Black coffee</p> */}
+
                 </div>
                 <div>
                     <img src="/banner1.jpg" alt="image2" className={styles.imgStyle} />
-                    {/* <p className="legend">Brewing Techniques ?</p> */}
+
                 </div>
                 <div>
                     <img src="/banner2.jpg" alt="image3" className={styles.imgStyle} />
-                    {/* <p className="legend">Capucchino ?</p> */}
+
                 </div>
             </Carousel>
             <header className={styles.menuHeader} id="fixed-menu">
