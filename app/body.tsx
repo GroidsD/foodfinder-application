@@ -191,7 +191,7 @@ const Body = () => {
                             <a href="" className={styles.aboutBodyTitle}>PREP TECHNIQUES</a>
                             <p>This is the most common method of brewing coffee in the US. Hot water is poured over coffee grounds in a filter and the brewed coffee drips into a carafe or cup below.</p>
                             <div className={styles.aboutBodyReadMore}>
-                                <a href="" className={styles.a}>
+                                <a href="./PREPTECHNIQUES.html" className={styles.a}>
                                     <p> --- READ MORE ---</p>
                                 </a>
                             </div>
@@ -202,7 +202,7 @@ const Body = () => {
                             <a href="" className={styles.aboutBodyTitle}>FRENCH PRESS</a>
                             <p>Coarsely ground coffee is placed in a French press pot and hot water is added. After a few minutes, the plunger is pressed down, separating the grounds from the brewed coffee.</p>
                             <div className={styles.aboutBodyReadMore}>
-                                <a href="" className={styles.a}>
+                                <a href="./FRENCHPRESS.html" className={styles.a}>
                                     <p> --- READ MORE ---</p>
                                 </a>
                             </div>
@@ -213,7 +213,7 @@ const Body = () => {
                             <a href="" className={styles.aboutBodyTitle}>TURKISH IBRIK</a>
                             <p> The unique shape of the ibrik allows for the coffee to be brewed slowly and evenly, resulting in a strong, rich, and flavorful cup of coffee.</p>
                             <div className={styles.aboutBodyReadMore}>
-                                <a href="" className={styles.a}>
+                                <a href="./TURKISHIBRIK.html" className={styles.a}>
                                     <p> --- READ MORE ---</p>
                                 </a>
                             </div>
