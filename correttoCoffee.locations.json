@@ -2,32 +2,43 @@
   "_id": {
     "$oid": "666dc0b02988ac2e28f3b105"
   },
-  "id": "1",
+  "id": 1,
   "product": "COLUMBIA COFFEE",
-  "category": "Correctto Coffee",
-  "price": "36.49",
+  "price": 36,
   "location_id": "56018",
-  "remain": "100"
+  "remain": 100,
+  "imgURL": "/product2.jpg"
 },
 {
   "_id": {
     "$oid": "666dc0b02988ac2e28f3b106"
   },
-  "id": "2",
+  "id": 2,
   "product": "ETHIOPIA COFFEE",
-  "category": "Correccto",
-  "price": "21.99",
+  "price": 21,
   "location_id": "62432",
-  "remain": "100"
+  "remain": 100,
+  "imgURL": "/product.jpg"
 },
 {
   "_id": {
     "$oid": "666dc0b02988ac2e28f3b107"
   },
-  "id": "3",
+  "id": 3,
   "product": "GUATEMALA COFFEE",
-  "category": "Correccto",
-  "price": "49.99",
+  "price": 49,
   "location_id": "12340",
-  "remain": "100"
+  "remain": 100,
+  "imgURL": "/product3.jpg"
+},
+{
+  "_id": {
+    "$oid": "6675283c0a317fa1d6811827"
+  },
+  "id": 4,
+  "product": "KENYA COFFEE",
+  "price": 29,
+  "location_id": "56018",
+  "remain": 100,
+  "imgURL": "/product1.jpg"
 }]

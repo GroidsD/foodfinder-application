@@ -61,13 +61,13 @@ export async function onUserWishlist(user_id: string): Promise<LocationType[] | 
 //     return {};
 // }
 
-export async function updateQuantity(id: number, quantity: number):
+export async function updateQuantity(id: number, remain: number):
     Promise<LocationType | null | {}> {
     await dbConnect();
 
     let filter = { id: id };
     let options: QueryOptions = { upsert: true, returnDocument: "after" };
-    let update = { quantity };
+    let update = { remain };
     try {
         let result: LocationType | null = await locationsModel.findOneAndUpdate(filter,
             update, options);
