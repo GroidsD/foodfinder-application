@@ -1,0 +1,205 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 15px;
+    font-family: "Open Sans", sans-serif;
+    line-height: 26px;
+    font-weight: 300;
+    color: #656565;
+    overflow-x: hidden !important;
+    -webkit-font-smoothing: antialiased;
+}
+
+.goTop {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    color: #fff;
+    background-color: orange;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    border-radius: 50%;
+    display: none;
+    text-align: center;
+    /* Moved from .goTop selector */
+    cursor: pointer;
+    /* Added for better usability */
+}
+
+.goTop i {
+    font-size: 24px;
+    /* Adjust the font size as needed */
+}
+
+.page {
+    position: relative;
+    /* Added for proper positioning of the goTop button */
+}
+
+.slider {
+    position: relative;
+}
+
+.slide img {
+    height: 720px;
+}
+
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    width: 150px;
+}
+
+.menu {
+    position: absolute;
+    top: 20px;
+    left: 700px;
+}
+
+.menu ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.menu ul li {
+    list-style: none;
+    margin: 30px;
+}
+
+.menu ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.menu ul li a:hover {
+    border-bottom: 2px solid white;
+    transition: all 0.8s;
+}
+
+@media screen and (max-width: 768px) {
+    .logo {
+        display: none;
+    }
+
+    #main-menu {
+        flex-direction: column;
+        margin-left: -700px !important;
+        background-color: black;
+
+    }
+
+    .menu {
+        top: 0;
+        width: 100%;
+    }
+}
+
+.correctto {
+    position: absolute;
+    top: 50%;
+    z-index: 999;
+    color: white;
+    text-align: center;
+    width: 100%;
+    font: bold;
+    font-family: Times, "Times New Roman", Georgia, serif;
+    size: 50px;
+}
+
+.col-md-4 h1,
+h2,
+h3,
+h4,
+h5,
+h1 {
+    /* float: right; */
+    font-family: Times, "Times New Roman", Georgia, serif;
+}
+
+.image1 {
+    padding-top: 20px;
+    /* margin-left: 15px; */
+}
+
+.pic1 {
+    margin-top: 30px;
+}
+
+.pic1 a,
+.col a {
+    color: #656565;
+}
+
+.pic1 a:hover,
+.col a:hover {
+    text-decoration: none;
+    color: #C3A484;
+}
+
+main {
+    background-image: url(/banner5.jpg);
+}
+
+/*footer*/
+footer {
+    background-image: url("footer-top-img-1.jpg");
+    text-align: center;
+    height: 700px;
+}
+
+footer img {
+    text-align: center;
+    margin-top: 50px;
+    width: 200px;
+}
+
+.textwidget {
+    margin-top: 30px;
+}
+
+.textwidget p {
+    color: #fff;
+}
+
+.title-store {
+    color: #fff;
+    font-family: Marcellus, sans-serif;
+    font-weight: 400;
+}
+
+.direction a {
+    color: #fff;
+}
+
+.direction a:hover {
+    color: #be9c79;
+    text-decoration: none;
+
+}
+
+form {
+    background-color: #312f2f !important;
+    display: flex;
+}
+
+.container-title {
+    text-align: center !important;
+    align-items: center !important;
+}
+
+.input-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-title {
+    margin-top: 50px !important;
+}
