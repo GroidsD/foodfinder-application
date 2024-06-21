@@ -16,6 +16,8 @@ import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import React, { useState, useEffect } from 'react';
 import { updateQuantity } from '@/mongoose/locations/services';
+import { Product } from '@/custom';
+import { updateRemain } from '@/actions/updateRemain';
 
 const Body = () => {
     const [showGoTop, setShowGoTop] = useState(false);
@@ -42,15 +44,7 @@ const Body = () => {
 
 
     const scroll = useScroll;
-    interface Product {
-        id: number;
-        product: string;
-        price: number;
-        quantity: number;
-        remain: number;
-        imgURL: string;
-    }
-
+   
     const handleScrollToCart = () => {
         const cartTable = document.getElementById('carttable');
         if (cartTable) {
@@ -118,10 +112,7 @@ const Body = () => {
                 pauseOnHover: true,
                 draggable: true,
             });
-            for (let i = 0; i <= products.length; i++) {
-                let p: Product = products[i];
-                updateQuantity(p.id, p.quantity);
-            }
+            updateRemain(products);
         }
     };
 

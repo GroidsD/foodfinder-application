@@ -3,15 +3,20 @@ import { LocationType } from "./interface";
 
 export const LocationSchema: Schema = new Schema<LocationType>({
     id: {
-        type: "number",
+        type: "Number",
         required: true,
+        unique: true,
+        validate : {
+            validator : Number.isInteger,
+            message   : '{VALUE} is not an integer value'
+        }
     },
     product: {
         type: "String",
         required: true,
     },
     price: {
-        type: "number",
+        type: "Number",
         required: true,
     },
     location_id: {
@@ -19,11 +24,15 @@ export const LocationSchema: Schema = new Schema<LocationType>({
         required: true,
     },
     remain: {
-        type: "number",
+        type: "Number",
         required: true,
+        validate : {
+            validator : Number.isInteger,
+            message   : '{VALUE} is not an integer value'
+        }
     },
     imgURL: {
-        type: "string",
+        type: "String",
         required: true,
     }
 });

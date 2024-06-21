@@ -1,6 +1,6 @@
 import locationsModel from "./model";
 import { FilterWishlistType, FilterLocationType, } from "custom";
-import { QueryOptions } from "mongoose";
+import { ClientSession, QueryOptions } from "mongoose";
 import { LocationType } from "./interface";
 import dbConnect from "@/middleware/db-connect";
 
@@ -61,16 +61,15 @@ export async function onUserWishlist(user_id: string): Promise<LocationType[] | 
 //     return {};
 // }
 
-export async function updateQuantity(id: number, remain: number):
+export async function updateQuantity(idn: number, quantity: number):
     Promise<LocationType | null | {}> {
     await dbConnect();
 
-    let filter = { id: id };
-    let options: QueryOptions = { upsert: true, returnDocument: "after" };
-    let update = { remain };
+    let filter = { id: idn, remain: { $gte: quantity } };
+    let update = { $inc: { remain: -quantity } };
     try {
         let result: LocationType | null = await locationsModel.findOneAndUpdate(filter,
-            update, options);
+            update, { new: true, upsert: false });
         return result;
     } catch (err) {
         console.log(err);

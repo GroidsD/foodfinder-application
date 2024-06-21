@@ -17,3 +17,12 @@ declare module "next-auth" {
         } & DefaultSession["user"];
     }
 }
+
+export declare type Product = {
+    id: number;
+    product: string;
+    price: number;
+    quantity: number;
+    remain: number;
+    imgURL: string;
+}

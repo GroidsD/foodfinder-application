@@ -1,4 +1,5 @@
 "use client";
+
 import { LocationType } from "@/mongoose/locations/interface";
 import styles from "./locations-details.module.css";
 import { toast } from 'react-toastify';
@@ -55,11 +56,7 @@ async function LocationsDetails(props: PropsInterface): Promise<JSX.Element> {
                     <li>
                         <b>Product: </b>
                         {location.product}
-                    </li>
-                    <li>
-                        <b>Category: </b>
-                        {location.category}
-                    </li>
+                    </li>                    
                     <li>
                         <b>Price: </b>
                         {location.price}

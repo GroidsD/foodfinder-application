@@ -16,7 +16,7 @@ async function LocationsListItem(props: PropsInterface): Promise<JSX.Element> {
             <h2>
               {location.id}
               <small className={styles.details}>
-                {location.product} in {location.price}
+                {location.product}, ${location.price}, {location.remain}
               </small>
             </h2>
           </Link>
