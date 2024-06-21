@@ -1,9 +1,9 @@
 
 export declare interface LocationType {
-    id: string,
+    id: number,
     product: string,
-    category: string,
-    price: string,
+    price: number,
     location_id: string,
-    remain: string
+    remain: number,
+    imgURL: string
 };

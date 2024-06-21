@@ -13,7 +13,7 @@ async function LocationsList(props: PropsInterface): Promise<JSX.Element> {
                 return (
                     <LocationsListItem
                         location={location}
-                        key={location.location_id}
+                        key={location.id}
                     />
                 );
             })}

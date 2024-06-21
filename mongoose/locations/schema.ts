@@ -3,19 +3,15 @@ import { LocationType } from "./interface";
 
 export const LocationSchema: Schema = new Schema<LocationType>({
     id: {
-        type: "String",
+        type: "number",
         required: true,
     },
     product: {
         type: "String",
         required: true,
     },
-    category: {
-        type: "String",
-        required: true,
-    },
     price: {
-        type: "String",
+        type: "number",
         required: true,
     },
     location_id: {
@@ -23,6 +19,10 @@ export const LocationSchema: Schema = new Schema<LocationType>({
         required: true,
     },
     remain: {
+        type: "number",
+        required: true,
+    },
+    imgURL: {
         type: "string",
         required: true,
     }

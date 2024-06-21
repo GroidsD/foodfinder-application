@@ -15,6 +15,7 @@ import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import React, { useState, useEffect } from 'react';
+import { updateQuantity } from '@/mongoose/locations/services';
 
 const Body = () => {
     const [showGoTop, setShowGoTop] = useState(false);
@@ -43,10 +44,11 @@ const Body = () => {
     const scroll = useScroll;
     interface Product {
         id: number;
-        img: string;
-        name: string;
+        product: string;
         price: number;
         quantity: number;
+        remain: number;
+        imgURL: string;
     }
 
     const handleScrollToCart = () => {
@@ -69,7 +71,7 @@ const Body = () => {
             setProducts([...products, { ...product, quantity: 1 }]);
         }
 
-        toast.success(`Added ${product.name} to cart successfully!`, {
+        toast.success(`Added ${product.product} to cart successfully!`, {
             className: 'custom-toast',
             position: "top-right",
             autoClose: 1000,
@@ -116,6 +118,10 @@ const Body = () => {
                 pauseOnHover: true,
                 draggable: true,
             });
+            for (let i = 0; i <= products.length; i++) {
+                let p: Product = products[i];
+                updateQuantity(p.id, p.quantity);
+            }
         }
     };
 
@@ -236,7 +242,7 @@ const Body = () => {
                                     <img src="/product2.jpg" />
                                     <button
                                         style={{ fontWeight: 'bold' }}
-                                        onClick={() => handleAddToCart({ id: 1, img: "/product2.jpg", name: 'COLUMBIA COFFEE', price: 21.00, quantity: 1 })}
+                                        onClick={() => handleAddToCart({ id: 1, imgURL: "/product2.jpg", product: 'COLUMBIA COFFEE', price: 21.00, quantity: 1, remain: 100 })}
                                         className="btn btn-warning">
                                         ADD TO CART
                                     </button>
@@ -253,7 +259,7 @@ const Body = () => {
                                     <img src="/product.jpg" />
                                     <button
                                         style={{ fontWeight: 'bold' }}
-                                        onClick={() => handleAddToCart({ id: 2, img: "/product.jpg", name: 'ETHIOPIA COFFEE', price: 31.00, quantity: 1 })}
+                                        onClick={() => handleAddToCart({ id: 2, imgURL: "/product.jpg", product: 'ETHIOPIA COFFEE', price: 31.00, quantity: 1, remain: 100 })}
                                         className="btn btn-warning">
                                         ADD TO CART
                                     </button>
@@ -270,7 +276,7 @@ const Body = () => {
                                     <img src="/product3.jpg" />
                                     <button
                                         style={{ fontWeight: 'bold' }}
-                                        onClick={() => handleAddToCart({ id: 3, img: "/product3.jpg", name: 'GUATEMALA COFFEE', price: 28.00, quantity: 1 })}
+                                        onClick={() => handleAddToCart({ id: 3, imgURL: "/product3.jpg", product: 'GUATEMALA COFFEE', price: 28.00, quantity: 1, remain: 100 })}
                                         className="btn btn-warning">
                                         ADD TO CART
                                     </button>
@@ -287,7 +293,7 @@ const Body = () => {
                                     <img src="/product1.jpg" />
                                     <button
                                         style={{ fontWeight: 'bold' }}
-                                        onClick={() => handleAddToCart({ id: 4, img: "/product1.jpg", name: 'KENYA COFFEE', price: 29.00, quantity: 1 })}
+                                        onClick={() => handleAddToCart({ id: 4, imgURL: "/product1.jpg", product: 'KENYA COFFEE', price: 29.00, quantity: 1, remain: 100 })}
                                         className="btn btn-warning">
                                         ADD TO CART
                                     </button>
@@ -362,8 +368,8 @@ const Body = () => {
                                         </a>
                                     </th>
                                     <td>
-                                        <img src={product.img} className={styles.img} />
-                                        {product.name}
+                                        <img src={product.imgURL} className={styles.img} />
+                                        {product.product}
                                     </td>
                                     <td>${product.price.toFixed(2)}</td>
                                     <td>
