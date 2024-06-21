@@ -15,9 +15,8 @@ import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import React, { useState, useEffect } from 'react';
-import { updateQuantity } from '@/mongoose/locations/services';
+import { updateRemain } from '@/mongoose/locations/services';
 import { Product } from '@/custom';
-import { updateRemain } from '@/actions/updateRemain';
 
 const Body = () => {
     const [showGoTop, setShowGoTop] = useState(false);

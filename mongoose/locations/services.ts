@@ -1,9 +1,36 @@
+"use server";
+
 import locationsModel from "./model";
 import { FilterWishlistType, FilterLocationType, } from "custom";
-import { ClientSession, QueryOptions } from "mongoose";
 import { LocationType } from "./interface";
 import dbConnect from "@/middleware/db-connect";
 
+import { Product } from "@/custom";
+import locations from "./model";
+
+export async function updateRemain(products: Product[]) {
+    await dbConnect();
+    const session = await locations.startSession();
+    session.startTransaction();
+    try {
+        for (let i = 0; i < products.length; i++) {
+            let p: Product = products[i];
+            let filter = { id: p.id, remain: { $gte: p.quantity } };
+            let update = { $inc: { remain: -p.quantity } };
+            let result: LocationType | null = await locationsModel.findOneAndUpdate(filter,
+                update, { new: true, upsert: false , sessiopn: session});
+            console.log(result);
+        }
+        await session.commitTransaction();
+    } catch (error) {
+        const errorMessage = (<Error>error).message;
+        console.log("Error: " + errorMessage);
+        await session.abortTransaction();
+        throw error;
+    } finally {
+        await session.endSession();
+    }
+}
 
 async function findLocations(filter: FilterLocationType | FilterWishlistType | {}): Promise<LocationType[] | []> {
     try {
@@ -61,18 +88,3 @@ export async function onUserWishlist(user_id: string): Promise<LocationType[] | 
 //     return {};
 // }
 
-export async function updateQuantity(idn: number, quantity: number):
-    Promise<LocationType | null | {}> {
-    await dbConnect();
-
-    let filter = { id: idn, remain: { $gte: quantity } };
-    let update = { $inc: { remain: -quantity } };
-    try {
-        let result: LocationType | null = await locationsModel.findOneAndUpdate(filter,
-            update, { new: true, upsert: false });
-        return result;
-    } catch (err) {
-        console.log(err);
-    }
-    return {};
-}
