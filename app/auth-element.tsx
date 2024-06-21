@@ -20,13 +20,13 @@ function AuthElement(): JSX.Element {
                 }
                 {status === "authenticated" && (
                     <>
-                        {/* <Button variant="outline">
+                        <Button variant="outline">
                             <Link
                                 href={`/list/${session?.user.fdlst_private_userId}`}
                             >
                                 Your wish list
                             </Link>
-                        </Button> */}
+                        </Button>
                         <Button variant="blue" clickHandler={() => signOut()}>
                             Sign out
                         </Button>

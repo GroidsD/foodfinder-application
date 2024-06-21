@@ -18,9 +18,12 @@ export const LocationSchema: Schema = new Schema<LocationType>({
         type: "String",
         required: true,
     },
-
     location_id: {
         type: "String",
+        required: true,
+    },
+    remain: {
+        type: "string",
         required: true,
     }
 });

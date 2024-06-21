@@ -24,16 +24,12 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
 
         <Providers>
           <Header />
-
           <Body />
-          {/* <main className="layout-grid">
+          <main className="layout-grid">
             {children}
-          </main> */}
-
-
+          </main>
         </Providers>
-
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );

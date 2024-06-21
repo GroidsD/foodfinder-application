@@ -1,23 +1,26 @@
 [
     {
-        "id": 1,
+        "id": "1",
         "product": "Coffee 2077",
         "category": "Correctto Coffee",
         "price": "36.49",
-        "location_id": "302556"
+        "location_id": "302556",
+        "remain": "100"
     },
     {
-        "id": 2,
+        "id": "2",
         "product": "Coffee 5",
         "category": "Correccto",
         "price": "21.99",
-        "location_id": "4861548"
+        "location_id": "4861548",
+        "remain": "100"
     },
     {
-        "id": 3,
+        "id": "3",
         "product": " Coffee Minecraft",
         "category": "Correccto",
         "price": "49.99",
-        "location_id": "4981565"
+        "location_id": "4981565",
+        "remain": "100"
     }
 ]

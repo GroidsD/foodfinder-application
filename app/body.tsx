@@ -191,9 +191,9 @@ const Body = () => {
                             <a href="" className={styles.aboutBodyTitle}>PREP TECHNIQUES</a>
                             <p>This is the most common method of brewing coffee in the US. Hot water is poured over coffee grounds in a filter and the brewed coffee drips into a carafe or cup below.</p>
                             <div className={styles.aboutBodyReadMore}>
-                                <a href="" className={styles.a}>
+                                <Link href="./readMore1.html" className={styles.a}>
                                     <p> --- READ MORE ---</p>
-                                </a>
+                                </Link>
                             </div>
                         </div>
                         <div className="col-4">

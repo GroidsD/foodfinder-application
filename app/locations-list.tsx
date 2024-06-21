@@ -4,7 +4,6 @@ import LocationsListItem from "./locations-listitem";
 
 interface PropsInterface {
     locations: LocationType[];
-
 }
 
 async function LocationsList(props: PropsInterface): Promise<JSX.Element> {
