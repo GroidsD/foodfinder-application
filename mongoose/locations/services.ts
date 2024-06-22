@@ -15,11 +15,17 @@ export async function updateRemain(products: Product[]) {
     try {
         for (let i = 0; i < products.length; i++) {
             let p: Product = products[i];
-            let filter = { id: p.id, remain: { $gte: p.quantity } };
-            let update = p.quantity <= p.remain ? { $inc: { remain: -p.quantity } } : { $inc: { remain: p.remain } };
-            let result: LocationType | null = await locationsModel.findOneAndUpdate(filter,
-                update, { new: true, upsert: false, sessiopn: session });
-            console.log(result);
+            let result: LocationType | null = await locations.findOne({ id: p.id});
+            if (! result) 
+                throw new Error("Coffee " + p.product + " is not found.");
+
+            if (result.remain < p.quantity) 
+                throw new Error("Coffee " + p.product + " is not in sufficient quantity to sell.");
+            
+            // update
+            result = await locations.findOneAndUpdate( {id : p.id}, { remain: result.remain - p.quantity}, { new: true, session: session});
+            
+            console.log("Updated: " + result);
         }
         await session.commitTransaction();
     } catch (error) {

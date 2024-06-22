@@ -18,6 +18,8 @@ async function dbConnect(): Promise<any> {
     if (mongoose.connection.readyState != 1) {
         await mongoose.disconnect();
         await mongoose.connect(MONGODB_URI, options);
+    
+        console.log("MongoDb connected.");
     }
 }
 

@@ -91,7 +91,7 @@ const Body = () => {
 
     const totalCost = products.reduce((acc, product) => acc + product.price * product.quantity, 0);
 
-    const handlePay = () => {
+    const handlePay = async () => {
         if (products.length === 0) {
             toast.error('No products in cart. Please add some products before paying.', {
                 position: 'top-right',
@@ -102,16 +102,29 @@ const Body = () => {
                 draggable: true,
             });
         } else {
-            updateRemain(products);
-            toast.success('Payment successful!', {
-                position: 'top-right',
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-            });
-            setProducts([]);
+            try {
+                await updateRemain(products);
+                toast.success('Payment successful!', {
+                    position: 'top-right',
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                });
+                setProducts([]);
+            } catch (error) {
+                if (error instanceof Error) {
+                    toast.error(error.message, {
+                        position: 'top-right',
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                    });
+                }
+            }
         }
     };
 
