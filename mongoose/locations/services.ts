@@ -16,9 +16,9 @@ export async function updateRemain(products: Product[]) {
         for (let i = 0; i < products.length; i++) {
             let p: Product = products[i];
             let filter = { id: p.id, remain: { $gte: p.quantity } };
-            let update = { $inc: { remain: -p.quantity } };
+            let update = p.quantity <= p.remain ? { $inc: { remain: -p.quantity } } : { $inc: { remain: p.remain } };
             let result: LocationType | null = await locationsModel.findOneAndUpdate(filter,
-                update, { new: true, upsert: false , sessiopn: session});
+                update, { new: true, upsert: false, sessiopn: session });
             console.log(result);
         }
         await session.commitTransaction();
@@ -30,6 +30,7 @@ export async function updateRemain(products: Product[]) {
     } finally {
         await session.endSession();
     }
+    return await products;
 }
 
 async function findLocations(filter: FilterLocationType | FilterWishlistType | {}): Promise<LocationType[] | []> {
@@ -62,29 +63,4 @@ export async function onUserWishlist(user_id: string): Promise<LocationType[] | 
     };
     return await findLocations(filter);
 }
-
-// export async function updateWishlist(location_id: string, user_id: string, action: string):
-//     Promise<LocationType | null | {}> {
-//     await dbConnect();
-
-//     let filter = { location_id: location_id };
-//     let options: QueryOptions = { upsert: true, returnDocument: "after" };
-//     let update = {};
-//     switch (action) {
-//         case "add":
-//             update = { $push: { on_wishlist: user_id } };
-//             break;
-//         case "remove":
-//             update = { $pull: { on_wishlist: user_id } };
-//             break;
-//     }
-//     try {
-//         let result: LocationType | null = await locationsModel.findOneAndUpdate(filter,
-//             update, options);
-//         return result;
-//     } catch (err) {
-//         console.log(err);
-//     }
-//     return {};
-// }
 

@@ -43,7 +43,7 @@ const Body = () => {
 
 
     const scroll = useScroll;
-   
+
     const handleScrollToCart = () => {
         const cartTable = document.getElementById('carttable');
         if (cartTable) {
@@ -102,7 +102,7 @@ const Body = () => {
                 draggable: true,
             });
         } else {
-            setProducts([]);
+            updateRemain(products);
             toast.success('Payment successful!', {
                 position: 'top-right',
                 autoClose: 5000,
@@ -111,7 +111,7 @@ const Body = () => {
                 pauseOnHover: true,
                 draggable: true,
             });
-            updateRemain(products);
+            setProducts([]);
         }
     };
 
@@ -148,25 +148,25 @@ const Body = () => {
                     <div className="row">
                         <div className="col-3">
                             <Image src={icon1} className={styles.introduceBodyImg} alt="Responsive image" />
-                            <a href="" className={styles.a}>TYPES OF COFFEE</a>
+                            <p className={styles.a}>TYPES OF COFFEE</p>
                             <p>Caffè corretto is an Italian caffeinated alcoholic drink, consisting of a shot of espresso with a small amount of liquor, usually grappa, and sometimes sambuca or brandy.</p>
 
                         </div>
                         <div className="col-3">
                             <Image src={icon2} className={styles.introduceBodyImg} alt="Responsive image" />
-                            <a href="" className={styles.a}>BEAN VARIETIES</a>
+                            <p className={styles.a}>BEAN VARIETIES</p>
                             <p>The variety of beans used in Caffè Corretto can vary depending on personal preference or availability.</p>
                         </div>
                         <div className="col-3">
                             <Image src={icon3} className={styles.introduceBodyImg} alt="Responsive image" />
 
-                            <a href="" className={styles.a}>COFFEE & PASTRY</a>
+                            <p className={styles.a}>COFFEE & PASTRY</p>
                             <p>Coffee & Pastry could refer to a variety of things, such as a coffee shop that sells pastries, a type of coffee drink that includes a pastry, or a menu category that includes both coffee and pastries.</p>
                         </div>
                         <div className="col-3">
                             <Image src={icon4} className={styles.introduceBodyImg} alt="Responsive image" />
 
-                            <a href="" className={styles.a}>COFFEE TO GO</a>
+                            <p className={styles.a}>COFFEE TO GO</p>
                             <p>It likely refers to a coffee drink that is prepared to be taken away and consumed on the go, rather than being served in a sit-down setting.</p>
                         </div>
                     </div>
@@ -182,36 +182,36 @@ const Body = () => {
                 <div className={styles.aboutBody}>
                     <div className="row">
                         <div className="col-4">
-                            <a href="" className={styles.a}><img src="/ad1.jpg" className={styles.aboutBodyImg} /></a>
+                            <Link href="./prep-techniques.html" className={styles.a}><img src="/ad1.jpg" className={styles.aboutBodyImg} /></Link>
                             <br />
-                            <a href="" className={styles.aboutBodyTitle}>PREP TECHNIQUES</a>
+                            <Link href="./prep-techniques.html" className={styles.aboutBodyTitle}>PREP TECHNIQUES</Link>
                             <p>This is the most common method of brewing coffee in the US. Hot water is poured over coffee grounds in a filter and the brewed coffee drips into a carafe or cup below.</p>
                             <div className={styles.aboutBodyReadMore}>
-                                <Link href="./readMore1.html" className={styles.a}>
+                                <Link href="./prep-techniques.html" className={styles.a}>
                                     <p> --- READ MORE ---</p>
                                 </Link>
                             </div>
                         </div>
                         <div className="col-4">
-                            <a href="" className={styles.a}><img src="/ad2.jpg" className={styles.aboutBodyImg} /></a>
+                            <Link href="./french-press.html" className={styles.a}><img src="/ad2.jpg" className={styles.aboutBodyImg} /></Link>
                             <br />
-                            <a href="" className={styles.aboutBodyTitle}>FRENCH PRESS</a>
+                            <Link href="./french-press.html" className={styles.aboutBodyTitle}>FRENCH PRESS</Link>
                             <p>Coarsely ground coffee is placed in a French press pot and hot water is added. After a few minutes, the plunger is pressed down, separating the grounds from the brewed coffee.</p>
                             <div className={styles.aboutBodyReadMore}>
-                                <a href="./FRENCHPRESS.html" className={styles.a}>
+                                <Link href="./french-press.html" className={styles.a}>
                                     <p> --- READ MORE ---</p>
-                                </a>
+                                </Link>
                             </div>
                         </div>
                         <div className="col-4">
-                            <a href="" className={styles.a}><img src="/ad3.jpg" className={styles.aboutBodyImg} /></a>
+                            <Link href="./turkish-ibrik.html" className={styles.a}><img src="/ad3.jpg" className={styles.aboutBodyImg} /></Link>
                             <br />
-                            <a href="" className={styles.aboutBodyTitle}>TURKISH IBRIK</a>
+                            <Link href="./turkish-ibrik.html" className={styles.aboutBodyTitle}>TURKISH IBRIK</Link>
                             <p> The unique shape of the ibrik allows for the coffee to be brewed slowly and evenly, resulting in a strong, rich, and flavorful cup of coffee.</p>
                             <div className={styles.aboutBodyReadMore}>
-                                <a href="./TURKISHIBRIK.html" className={styles.a}>
+                                <Link href="./turkish-ibrik.html" className={styles.a}>
                                     <p> --- READ MORE ---</p>
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
