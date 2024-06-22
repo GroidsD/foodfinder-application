@@ -6,7 +6,7 @@
   "product": "COLUMBIA COFFEE",
   "price": 36,
   "location_id": "56018",
-  "remain": 100,
+  "remain": 3,
   "imgURL": "/product2.jpg"
 },
 {
@@ -17,7 +17,7 @@
   "product": "ETHIOPIA COFFEE",
   "price": 21,
   "location_id": "62432",
-  "remain": 100,
+  "remain": 63,
   "imgURL": "/product.jpg"
 },
 {
@@ -28,7 +28,7 @@
   "product": "GUATEMALA COFFEE",
   "price": 49,
   "location_id": "12340",
-  "remain": 100,
+  "remain": 95,
   "imgURL": "/product3.jpg"
 },
 {
