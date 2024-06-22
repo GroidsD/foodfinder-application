@@ -16,11 +16,12 @@ export async function updateRemain(products: Product[]) {
         for (let i = 0; i < products.length; i++) {
             let p: Product = products[i];
             let result: LocationType | null = await locations.findOne({ id: p.id});
-            if (! result) 
-                throw new Error("Coffee " + p.product + " is not found.");
+            if (! result)                 
+                throw new Error("Coffee " + p.product + " is not found.", { cause: {id : p.id} });            
 
-            if (result.remain < p.quantity) 
-                throw new Error("Coffee " + p.product + " is not in sufficient quantity to sell.");
+            if (result.remain < p.quantity) {
+                throw new Error("Coffee " + p.product + " is not in sufficient quantity to sell.", { cause: {id : p.id, product: p.product} });
+            }
             
             // update
             result = await locations.findOneAndUpdate( {id : p.id}, { remain: result.remain - p.quantity}, { new: true, session: session});
@@ -29,14 +30,16 @@ export async function updateRemain(products: Product[]) {
         }
         await session.commitTransaction();
     } catch (error) {
-        const errorMessage = (<Error>error).message;
-        console.log("Error: " + errorMessage);
+        if (error instanceof Error) {
+            const cause: {id: number, product: string} = <{id: number, product: string}>error.cause;
+            console.log("Error: " + error.message + ", id: " + cause.id + ", product: " + cause.product);
+        } else
+            console.log("Error: " + error);
         await session.abortTransaction();
         throw error;
     } finally {
         await session.endSession();
-    }
-    return await products;
+    }    
 }
 
 async function findLocations(filter: FilterLocationType | FilterWishlistType | {}): Promise<LocationType[] | []> {
